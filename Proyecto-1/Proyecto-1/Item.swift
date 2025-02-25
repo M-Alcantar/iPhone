@@ -13,6 +13,6 @@ struct Item: Identifiable {
     var name: String
     var description: String
     var price: String
-    var image: [UIImage]?
+    var image: UIImage?
     var location: CLLocationCoordinate2D?
 }
