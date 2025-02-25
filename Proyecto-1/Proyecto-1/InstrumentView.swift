@@ -1,20 +1,19 @@
 //
-//  InstrumentView.swift
+//  ItemView.swift
 //  Proyecto-1
 //
 //  Created by CETYS Universidad  on 19/02/25.
 //
 
 import SwiftUI
-import AVFoundation
 
-struct InstrumentView: View {
-    @State private var instrument = Instrument(name: "Saxophong", description: "I playa de saxaphone", price: 500.49)
+struct ItemView: View {
+    @State private var item = Item(name: "Saxophong", description: "I playa de saxaphone", price: 500.49)
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Text(instrument.name)
+                Text(item.name)
                     .font(.title3)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -25,12 +24,12 @@ struct InstrumentView: View {
                     .shadow(radius: 10)
                 
                 VStack(alignment: .center, spacing: 10){
-                    Text(instrument.price.formatted())
+                    Text(item.price.formatted())
                         .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(.gray)
                     
-                    Text(instrument.description)
+                    Text(item.description)
                         .font(.body)
                         .multilineTextAlignment(.leading)
                         .padding()
@@ -41,5 +40,5 @@ struct InstrumentView: View {
 }
 
 #Preview {
-    InstrumentView()
+    ItemView()
 }
