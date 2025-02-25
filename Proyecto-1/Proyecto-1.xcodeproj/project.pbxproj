@@ -398,6 +398,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Proyecto-1/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Para obtener fotos desde tu galeria.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Para obtener imagenes desde tu camara.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Para obtener tu ubicacion mientras la app esta en uso.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Para obtener tu ubicacion.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Se usara para saber tu ubicacion mientras usas la app.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Para usar tu galeria.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -426,6 +432,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Proyecto-1/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Para obtener fotos desde tu galeria.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Para obtener imagenes desde tu camara.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Para obtener tu ubicacion mientras la app esta en uso.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Para obtener tu ubicacion.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Se usara para saber tu ubicacion mientras usas la app.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Para usar tu galeria.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

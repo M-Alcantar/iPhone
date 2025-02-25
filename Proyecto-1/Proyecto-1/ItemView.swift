@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemView: View {
-    @State private var item = Item(name: "Saxophong", description: "I playa de saxaphone", price: 500.49)
+    @State var item: Item
     
     var body: some View {
         ScrollView {
@@ -24,7 +24,7 @@ struct ItemView: View {
                     .shadow(radius: 10)
                 
                 VStack(alignment: .center, spacing: 10){
-                    Text(item.price.formatted())
+                    Text(item.price)
                         .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(.gray)
@@ -38,7 +38,8 @@ struct ItemView: View {
         }
     }
 }
-
+/*
 #Preview {
-    ItemView()
+    ItemView(item: Item(name: "Item 1", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", price: "100"))
 }
+*/

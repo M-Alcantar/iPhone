@@ -12,7 +12,7 @@ struct Item: Identifiable {
     let id = UUID()
     var name: String
     var description: String
-    var price: Double
+    var price: String
     var image: [UIImage]?
     var location: CLLocationCoordinate2D?
 }
