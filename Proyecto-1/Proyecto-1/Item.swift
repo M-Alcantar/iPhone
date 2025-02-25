@@ -1,5 +1,5 @@
 //
-//  Instrument.swift
+//  Item.swift
 //  Proyecto-1
 //
 //  Created by CETYS Universidad  on 19/02/25.
