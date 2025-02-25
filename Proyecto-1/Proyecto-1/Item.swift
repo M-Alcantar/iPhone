@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreLocation
 
-struct Instrument: Identifiable {
+struct Item: Identifiable {
     let id = UUID()
     var name: String
     var description: String
