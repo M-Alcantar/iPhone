@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemView: View {
+struct ItemListView: View {
     @State var item : Item
     
     var body: some View {
@@ -51,11 +51,4 @@ struct ItemView: View {
         }
     }
 }
-    
-#Preview {
-    ItemView(item: Item(name: "Nombre del prodoto", description: "Descripcion del producto", price: "500.49", image: UIImage(systemName: "photo")))
-}
 
-#Preview {
-    ItemListView()
-}
