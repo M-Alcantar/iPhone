@@ -7,39 +7,60 @@
 
 import SwiftUI
 
-struct ItemView: View {
-    @State var item: Item
+struct ItemDetailView: View {
+    @State var item : Item
     
     var body: some View {
+        let screenWidth = UIScreen.main.bounds.width
+        
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                Text(item.name)
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(LinearGradient(colors: [Color.green, Color.pink, Color.brown], startPoint: .leading, endPoint: .trailing))
-                    .cornerRadius(12)
-                    .shadow(radius: 10)
-                
-                VStack(alignment: .center, spacing: 10){
-                    Text(item.price)
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.gray)
+            VStack(spacing: 20) {
+                HStack(){
+                    VStack(alignment: .leading){
+                        Text(item.name)
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.leading)
+                            .padding()
+                            .frame(width: screenWidth * 0.63, alignment: .leading)
+                    }
                     
-                    Text(item.description)
-                        .font(.body)
-                        .multilineTextAlignment(.leading)
+                    VStack(alignment: .center){
+                        Text("$" + item.price)
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .padding(5)
+                            .background(Color.green)
+                            .cornerRadius(5)
+                            .frame(alignment: .trailing)
+                    }
+                }
+                    .frame(maxWidth: .infinity)
+                    .background(LinearGradient(colors: [Color.blue, Color.purple, Color.red, Color.yellow], startPoint: .leading, endPoint: .trailing))
+                    .shadow(radius: 3)
+                
+                Text(item.description)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.gray)
+                    .frame(width: screenWidth * 0.9, alignment: .leading)
+                    .multilineTextAlignment(.leading)
+                
+                if let image = item.image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: screenWidth * 0.9)
+                        .cornerRadius(12)
                         .padding()
                 }
             }
         }
     }
 }
-/*
+    
 #Preview {
-    ItemView(item: Item(name: "Item 1", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", price: "100"))
+    ItemDetailView(item: Item(name: "Nombre del prodoto", description: "Descripcion del producto\nLalalala lala el pepe el pepe el pepe este es un super bloque de texto yeah lets go", price: "500.49", image: UIImage(named: "Cat")))
 }
-*/
