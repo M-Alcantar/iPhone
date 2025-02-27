@@ -9,12 +9,18 @@ import SwiftUI
 
 struct ItemDetailView: View {
     @State var item : Item
+    @State private var showMapView: Bool = false
+    @StateObject private var permissionsViewModel = PermissionsViewModel()
     
     var body: some View {
         let screenWidth = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
         
-        ScrollView {
+        NavigationView {
             VStack(spacing: 20) {
+                
+                Spacer(minLength: 0)
+                
                 HStack(){
                     VStack(alignment: .leading){
                         Text(item.name)
@@ -56,6 +62,26 @@ struct ItemDetailView: View {
                         .cornerRadius(12)
                         .padding()
                 }
+                
+                NavigationLink(destination: MapView()) {
+                    Text("Drugs")
+                        .frame(width: screenWidth * 0.75)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(8)
+                }
+                
+                NavigationLink(destination: MapView()) {
+                    Text("Grugs")
+                        .frame(width: screenWidth * 0.75)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(8)
+                }
+                
+                
             }
         }
     }
