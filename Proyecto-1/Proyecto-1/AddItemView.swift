@@ -12,7 +12,6 @@ struct AddItemView: View {
     @State private var description = ""
     @State private var price = ""
     @State private var image: UIImage?
-    @Binding var items: [Item]
     @State private var userLatitude: Double?
     @State private var userLongitude: Double?
     
@@ -68,5 +67,5 @@ struct AddItemView: View {
 }
 
 #Preview {
-    AddItemView(items: .constant([Item(name: "Ejemplo de tarea", description: "Dato falso", price: "10")]), viewModel: ItemViewModel())
+    AddItemView(viewModel: ItemViewModel())
 }
