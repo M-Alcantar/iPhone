@@ -11,11 +11,12 @@ struct AddItemView: View {
     @State private var name = ""
     @State private var description = ""
     @State private var price = ""
+    @State private var image: UIImage?
     @Binding var items: [Item]
-    
-    // Nuevos estados
     @State private var userLatitude: Double?
     @State private var userLongitude: Double?
+    
+    @StateObject var viewModel: ItemViewModel
     
     var body: some View {
         NavigationView{
@@ -27,12 +28,18 @@ struct AddItemView: View {
                 }
                 // Agrega el boton para agregar imagenes ya se de la galeria o de la camara.
                 // Imagen
-                NavigationLink(destination: ImagePickerView()){
+                NavigationLink(destination: ImagePickerView(image: $image)){
                     Text("Seleccionar una imagen")
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(Color.yellow)
                         .cornerRadius(8)
+                }
+                
+                if let image = image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
                 }
                 
             }
@@ -58,5 +65,5 @@ struct AddItemView: View {
 }
 
 #Preview {
-    AddItemView(items: .constant([Item(name: "Ejemplo de tarea", description: "Dato falso", price: "10")]))
+    AddItemView(items: .constant([Item(name: "Ejemplo de tarea", description: "Dato falso", price: "10")]), viewModel: ItemViewModel())
 }

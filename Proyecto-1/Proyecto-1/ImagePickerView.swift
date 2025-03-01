@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ImagePickerView: View {
-    @State private var image: UIImage? = nil
+    @Binding var image: UIImage?
     @State private var showImagePicker = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     

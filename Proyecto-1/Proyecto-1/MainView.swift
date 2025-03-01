@@ -13,11 +13,16 @@ struct MainView: View {
     var body: some View {
         NavigationStack{
             VStack(spacing:30){
+                Spacer()
                 Text("BIENVENIDO A YONGOLIBRE!")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding()
-                Text("Permite acceder a la ubicación, galería y a la cámara")
+                    .frame(maxWidth: .infinity)
+                    .background(LinearGradient(colors: [Color.blue, Color.purple, Color.red, Color.yellow], startPoint: .leading, endPoint: .trailing))
+                    .shadow(radius: 3)
+                
+                Text("Antes de continuar, permite acceder a la ubicación, galería y cámara")
                     .multilineTextAlignment(.center)
                 VStack(spacing: 20){
                     
