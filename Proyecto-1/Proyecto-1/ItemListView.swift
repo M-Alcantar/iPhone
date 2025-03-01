@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct ItemListView: View {
-        @State private var items: [Item] = [
-        ]
         @State private var showAddItemView:Bool = false
         @StateObject var viewModel: ItemViewModel
         
         var body: some View {
             NavigationView {
                 List {
-                    ForEach(items) { item in
+                    ForEach(viewModel.itemList) { item in
                         NavigationLink(destination: ItemDetailView(item: item)) {
                             Text(item.name)
                         }
@@ -37,7 +35,7 @@ struct ItemListView: View {
                     }
                 }
                 .sheet(isPresented: $showAddItemView) {
-                    AddItemView(items: $items, viewModel: viewModel)
+                    AddItemView(viewModel: viewModel)
                 }
             }
         }
