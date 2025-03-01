@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct Carrito: View {
-    
-    @State private var items: [Item] = [
-    ]
+    @StateObject var viewModel: ItemViewModel
     /*
     @State private var items: [Item] = [
      Item(name: "Gato 10,000",
@@ -40,7 +38,7 @@ struct Carrito: View {
                 .font(.headline)
                 .foregroundStyle(.blue)
             List{
-                ForEach(items){
+                ForEach(viewModel.itemList){
                     item in
                     NavigationLink(destination: ItemDetailView(item: item)) {
                         Text(item.name)
@@ -76,5 +74,5 @@ struct Carrito: View {
 }
 
 #Preview {
-    Carrito()
+    Carrito(viewModel: ItemViewModel())
 }
