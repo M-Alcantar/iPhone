@@ -54,8 +54,11 @@ struct AddItemView: View {
                 // Recuerda guardar la ubicacion y la imagen cuando le pique save
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button("Yonguear"){
-                        let newItem = Item(name: name, description: description, price:price)
-                        items.append(newItem)
+                        if let image = image {
+                            viewModel.addItem(name: name, price: price, description: description, image: image)
+                        } else {
+                            viewModel.addItem(name: name, price: price, description: description)
+                        }
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
