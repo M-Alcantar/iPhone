@@ -20,10 +20,10 @@ struct AddItemView: View {
     var body: some View {
         NavigationView{
             Form{
-                Section(header: Text("What is this Item about?")) {
-                    TextField("Name", text: $name)
-                    TextField("Description of the item", text: $description)
-                    TextField("Price of the item", text: $price)
+                Section(header: Text("Que Item quieres vender?")) {
+                    TextField("Nombre del item", text: $name)
+                    TextField("Descripcion", text: $description)
+                    TextField("Precio del item", text: $price)
                 }
                 // Agrega el boton para agregar imagenes ya se de la galeria o de la camara.
                 // Imagen
@@ -36,17 +36,17 @@ struct AddItemView: View {
                 }
                 
             }
-            .navigationTitle("Add new Item")
+            .navigationTitle("Añadir nuevo item")
             .toolbar{
                 ToolbarItem(placement: .navigationBarLeading){
-                    Button("Cancel"){
+                    Button("Cancelar"){
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
                 
                 // Recuerda guardar la ubicacion y la imagen cuando le pique save
                 ToolbarItem(placement: .navigationBarTrailing){
-                    Button("Save"){
+                    Button("Yonguear"){
                         let newItem = Item(name: name, description: description, price:price)
                         items.append(newItem)
                         presentationMode.wrappedValue.dismiss()
@@ -57,3 +57,6 @@ struct AddItemView: View {
     }
 }
 
+#Preview {
+    AddItemView(items: .constant([Item(name: "Ejemplo de tarea", description: "Dato falso", price: "10")]))
+}

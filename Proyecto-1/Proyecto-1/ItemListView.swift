@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ItemListView: View {
+    /*
     @State var item : Item
     
     var body: some View {
@@ -50,5 +51,47 @@ struct ItemListView: View {
             }
         }
     }
-}
+     */
+        @State private var items: [Item] = [
+        ]
+        
+        @State private var showAddItemView:Bool = false
+        
+        var body: some View {
+            NavigationView {
+                List {
+                    ForEach(items) { item in
+                        NavigationLink(destination: ItemDetailView(item: item)) {
+                            Text(item.name)
+                        }
+                    }
+                    .onDelete(perform: deleteItem)
+                }
+                .navigationTitle("Lista de Tareas")
+                .toolbar{
+                    ToolbarItem(placement: .navigationBarTrailing){
+                        Button(action: {
+                            showAddItemView = true
+                        }) {
+                            Image(systemName: "plus")
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarLeading){
+                        EditButton()
+                    }
+                }
+                .sheet(isPresented: $showAddItemView) {
+                    AddItemView(items: $items)
+                }
+            }
+        }
+        
+        func deleteItem(at offset: IndexSet) {
+            items.remove(atOffsets: offset)
+        }
+    }
+
+    #Preview {
+        ItemListView()
+    }
 

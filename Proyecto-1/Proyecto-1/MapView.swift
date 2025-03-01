@@ -9,13 +9,10 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @StateObject private var locationManager = LocationManager()
+    @State var region = MKCoordinateRegion()
     
     var body: some View{
-        Map(coordinateRegion: $locationManager.region, showsUserLocation: true)
+        Map(coordinateRegion: $region, showsUserLocation: true)
             .edgesIgnoringSafeArea(.all)
-            .onAppear{
-                locationManager.requestLocation()
-            }
     }
 }

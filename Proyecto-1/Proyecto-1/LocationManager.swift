@@ -14,7 +14,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     )
     @Published var showLocationAlert = false
-    private var locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
 
     override init() {
         super.init()
