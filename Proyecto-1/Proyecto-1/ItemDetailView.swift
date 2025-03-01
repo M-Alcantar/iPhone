@@ -11,6 +11,8 @@ import MapKit
 struct ItemDetailView: View {
     @State var item : Item
     
+   @State private var items: [Item] = []
+    
     var body: some View {
         let screenWidth = UIScreen.main.bounds.width
         let _ = UIScreen.main.bounds.height
@@ -74,7 +76,7 @@ struct ItemDetailView: View {
                         }
                     }
                     
-                    NavigationLink(destination: Carrito()) {
+                    NavigationLink(destination: Carrito(viewModel: ItemViewModel())) {
                         HStack {
                             Image(systemName: "cart")
                                 .scaledToFit()

@@ -10,7 +10,9 @@ import SwiftUI
 struct ItemListView: View {
         @State private var showAddItemView:Bool = false
         @StateObject var viewModel: ItemViewModel
-        
+    
+        @State private var items: [Item] = []
+    
         var body: some View {
             NavigationView {
                 List {
@@ -21,7 +23,7 @@ struct ItemListView: View {
                     }
                     .onDelete(perform: deleteItem)
                 }
-                .navigationTitle("Lista de Tareas")
+                .navigationTitle("Lista de Items")
                 .toolbar{
                     ToolbarItem(placement: .navigationBarTrailing){
                         Button(action: {

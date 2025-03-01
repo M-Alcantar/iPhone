@@ -17,6 +17,8 @@ struct Carrito: View {
           description: "Holy Grail of Yonginess", price:"-1")
      ]
      */
+    @State private var items: [Item] = []
+    
     @State private var showItemDetailView:Bool = false
     
     var body: some View {

@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import MapKit
+
 struct AddItemView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var name = ""
     @State private var description = ""
     @State private var price = ""
     @State private var image: UIImage?
-    @Binding var items: [Item]
     @State private var userLatitude: Double?
     @State private var userLongitude: Double?
     
@@ -55,9 +56,9 @@ struct AddItemView: View {
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button("Yonguear"){
                         if let image = image {
-                            viewModel.addItem(name: name, price: price, description: description, image: image)
+                            viewModel.addItem(name: name, description: description, price: price, image: image, location: CLLocationCoordinate2D(latitude: 37.5, longitude: 49.5))
                         } else {
-                            viewModel.addItem(name: name, price: price, description: description)
+                            viewModel.addItem(name: name, description: description, price: price, image: nil, location: CLLocationCoordinate2D(latitude: 37.5, longitude: 49.5))
                         }
                         presentationMode.wrappedValue.dismiss()
                     }
@@ -68,5 +69,5 @@ struct AddItemView: View {
 }
 
 #Preview {
-    AddItemView(items: .constant([Item(name: "Ejemplo de tarea", description: "Dato falso", price: "10")]), viewModel: ItemViewModel())
+    AddItemView(viewModel: ItemViewModel())
 }

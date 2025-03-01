@@ -11,8 +11,8 @@ struct OptionView: View{
     var body: some View{
         VStack{
             // Ubicacion
-            NavigationLink(destination: ItemListView()){
-                Text("Lista de cosas obtenibles")
+            NavigationLink(destination: ItemListView(viewModel: ItemViewModel())){
+                Text("Lista de productos")
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.yellow)
@@ -20,8 +20,8 @@ struct OptionView: View{
             }
             
             // Imagen
-            NavigationLink(destination: Carrito()){
-                Text("Carritosaurio")
+            NavigationLink(destination: Carrito(viewModel: ItemViewModel())){
+                Text("Revisar carrito")
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.yellow)
