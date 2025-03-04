@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct OptionView: View{
+    @StateObject var viewModel: ItemViewModel
+    
     var body: some View{
         VStack{
             // Ubicacion
-            NavigationLink(destination: ItemListView(viewModel: ItemViewModel())){
-                Text("Lista de productos")
+            NavigationLink(destination: ItemListView(viewModel: viewModel)){
+                Text("Lista de cosas obtenibles")
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.yellow)
@@ -20,8 +22,8 @@ struct OptionView: View{
             }
             
             // Imagen
-            NavigationLink(destination: Carrito(viewModel: ItemViewModel())){
-                Text("Revisar carrito")
+            NavigationLink(destination: Carrito(viewModel: viewModel)){
+                Text("Carritosaurio")
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.yellow)

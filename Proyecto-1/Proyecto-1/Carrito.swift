@@ -42,7 +42,7 @@ struct Carrito: View {
             List{
                 ForEach(viewModel.itemList){
                     item in
-                    NavigationLink(destination: ItemDetailView(item: item)) {
+                    NavigationLink(destination: ItemDetailView(viewModel: viewModel, item: item)) {
                         Text(item.name)
                     }
                 }
@@ -56,11 +56,11 @@ struct Carrito: View {
             VStack{
                 // Comprar
                 NavigationLink("Comprar", destination: FinalScreen())
-                    .disabled(items.isEmpty)
+                    .disabled(viewModel.itemList.isEmpty)
                     .tint(.blue)
                 
                 // Volver
-                NavigationLink(destination: OptionView()){
+                NavigationLink(destination: OptionView(viewModel: viewModel)){
                     Text("Volver a menu principal")
                         .frame(maxWidth: .infinity)
                         .padding()

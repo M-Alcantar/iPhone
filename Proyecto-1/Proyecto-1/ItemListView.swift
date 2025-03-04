@@ -11,13 +11,11 @@ struct ItemListView: View {
         @State private var showAddItemView:Bool = false
         @StateObject var viewModel: ItemViewModel
     
-        @State private var items: [Item] = []
-    
         var body: some View {
             NavigationView {
                 List {
                     ForEach(viewModel.itemList) { item in
-                        NavigationLink(destination: ItemDetailView(item: item)) {
+                        NavigationLink(destination: ItemDetailView(viewModel: viewModel, item: item)) {
                             Text(item.name)
                         }
                     }
@@ -32,9 +30,6 @@ struct ItemListView: View {
                             Image(systemName: "plus")
                         }
                     }
-                    ToolbarItem(placement: .navigationBarLeading){
-                        EditButton()
-                    }
                 }
                 .sheet(isPresented: $showAddItemView) {
                     AddItemView(viewModel: viewModel)
@@ -43,7 +38,7 @@ struct ItemListView: View {
         }
         
         func deleteItem(at offset: IndexSet) {
-            items.remove(atOffsets: offset)
+            viewModel.itemList.remove(atOffsets: offset)
         }
     }
 
