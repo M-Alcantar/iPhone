@@ -15,7 +15,10 @@ struct FinalScreen: View {
             Text("yongo")
             .background(Color.green)
         }
+        
+        .navigationBarBackButtonHidden(true)
     }
+    
 }
 
 #Preview {

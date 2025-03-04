@@ -77,7 +77,9 @@ struct ItemDetailView: View {
                         }
                     }
                     
-                    NavigationLink(destination: Carrito(viewModel: viewModel)) {
+                    Button(action: {
+                        viewModel.buyItem(item: item)
+                    }) {
                         HStack {
                             Image(systemName: "cart")
                                 .scaledToFit()

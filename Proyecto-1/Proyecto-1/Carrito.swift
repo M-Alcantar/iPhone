@@ -9,15 +9,6 @@ import SwiftUI
 
 struct Carrito: View {
     @StateObject var viewModel: ItemViewModel
-    /*
-    @State private var items: [Item] = [
-     Item(name: "Gato 10,000",
-          description: "Pues Nomas", price:"100"),
-     Item(name: "El Yongo Primordial",
-          description: "Holy Grail of Yonginess", price:"-1")
-     ]
-     */
-    @State private var items: [Item] = []
     
     @State private var showItemDetailView:Bool = false
     
@@ -36,11 +27,11 @@ struct Carrito: View {
         .position(CGPoint(x: 200, y: 80))
         
         VStack{
-            Text("Lista de Yongos Enamorados <3")
+            Text("Lista de Items a comprar")
                 .font(.headline)
                 .foregroundStyle(.blue)
             List{
-                ForEach(viewModel.itemList){
+                ForEach(viewModel.buyList){
                     item in
                     NavigationLink(destination: ItemDetailView(viewModel: viewModel, item: item)) {
                         Text(item.name)
@@ -56,7 +47,7 @@ struct Carrito: View {
             VStack{
                 // Comprar
                 NavigationLink("Comprar", destination: FinalScreen())
-                    .disabled(viewModel.itemList.isEmpty)
+                    .disabled(viewModel.buyList.isEmpty)
                     .tint(.blue)
                 
                 // Volver
