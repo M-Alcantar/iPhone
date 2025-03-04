@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Proyecto_1App: App {
+    @StateObject private var itemViewModel = ItemViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(viewModel: itemViewModel)
         }
     }
 }

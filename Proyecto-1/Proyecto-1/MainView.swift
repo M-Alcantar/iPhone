@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var permissionViewModel = PermissionsViewModel()
-    
+    @StateObject var viewModel: ItemViewModel
+
     var body: some View {
         NavigationStack{
             VStack(spacing:30){
@@ -57,7 +58,7 @@ struct MainView: View {
             }
             .navigationDestination(for: String.self){ value in
                 if value == "OptionView"{
-                    OptionView()
+                    OptionView(viewModel: viewModel)
                 }
             }
         }
@@ -65,5 +66,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    MainView(viewModel: ItemViewModel())
 }

@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 
 struct ItemDetailView: View {
+    @StateObject var viewModel: ItemViewModel
     @State var item : Item
     
    @State private var items: [Item] = []
@@ -76,7 +77,7 @@ struct ItemDetailView: View {
                         }
                     }
                     
-                    NavigationLink(destination: Carrito(viewModel: ItemViewModel())) {
+                    NavigationLink(destination: Carrito(viewModel: viewModel)) {
                         HStack {
                             Image(systemName: "cart")
                                 .scaledToFit()
@@ -96,5 +97,5 @@ struct ItemDetailView: View {
 }
     
 #Preview {
-    ItemDetailView(item: Item(name: "Nombre del prodoto", description: "Descripcion del producto\nLalalala lala el pepe el pepe el pepe este es un super bloque de texto yeah lets go", price: "500.49", image: UIImage(named: "Cat"), location: CLLocationCoordinate2D(latitude: 37.5, longitude: 49.5)))
+    ItemDetailView(viewModel: ItemViewModel(), item: Item(name: "Nombre del prodoto", description: "Descripcion del producto\nLalalala lala el pepe el pepe el pepe este es un super bloque de texto yeah lets go", price: "500.49", image: UIImage(named: "Cat"), location: CLLocationCoordinate2D(latitude: 37.5, longitude: 49.5)))
 }
